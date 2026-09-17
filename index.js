@@ -2,7 +2,7 @@ const express = require('express');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const app = express();
-const TARGET_SERVER = 'http://172.245.180.219';
+const TARGET_SERVER = 'http://172.245.180.219:2053';
 
 app.use('/', createProxyMiddleware({
     target: TARGET_SERVER,
