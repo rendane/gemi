@@ -5,7 +5,7 @@ const app = express();
 
 // هدایت ترافیک کانکشن WebSocket به پورت اینباند
 app.use('/ws', createProxyMiddleware({
-    target: 'https://172.245.180.219:2083',
+    target: 'https://172.245.180.219:2053',
     changeOrigin: true,
     secure: false,
     ws: true
