@@ -2,12 +2,14 @@ const express = require('express');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const app = express();
-const TARGET_SERVER = 'http://172.245.180.219:2053';
+// آدرس و پورت دقیق پنل
+const TARGET_SERVER = 'https://172.245.180.219:2053';
 
 app.use('/', createProxyMiddleware({
     target: TARGET_SERVER,
     changeOrigin: true,
-    ws: true, // پشتیبانی از WebSocket
+    secure: false, // نادیده گرفتن گواهی SSL خودامضا سرور
+    ws: true,
     onProxyReq: (proxyReq, req, res) => {
         proxyReq.setHeader('Host', 'hey.celpipassistant.study');
     }
